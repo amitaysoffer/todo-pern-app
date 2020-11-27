@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
 // const path = require('path');
+const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const pool = require('./db')
 
 // middleware
-// app.use(cors()) ?? 
+app.use(cors());
 app.use(express.json()) // to get data from the client side we need to use req.body and this allows us to access the req.body and get json data.
 
 // ROUTES \\\
