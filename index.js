@@ -9,7 +9,6 @@ app.use('/', express.static(path.join(__dirname, 'client/build')));
 
 // middleware
 // app.use(cors());
-// app.use(express.static('/client/public'));
 app.use(express.json()) // to get data from the client side we need to use req.body and this allows us to access the req.body and get json data.
 
 // ROUTES \\\
