@@ -1,14 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-// const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const pool = require('./db')
 
 app.use('/', express.static(path.join(__dirname, 'client/build')));
 
 // middleware
-// app.use(cors());
 app.use(express.json()) // to get data from the client side we need to use req.body and this allows us to access the req.body and get json data.
 
 // ROUTES \\\
@@ -30,6 +28,7 @@ app.get('/todos', async (req, res) => {
     res.json(allTodos.rows);
   } catch (error) {
     console.error(error.message)
+    res.status(500).send(error.message)
   }
 })
 

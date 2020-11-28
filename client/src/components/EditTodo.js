@@ -7,7 +7,7 @@ const EditTodo = ({ todo }) => {
   const updateDescription = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`http://localhost:5000/todos/${todo.todo_id}`, {
+      const response = await axios.put(`/todos/${todo.todo_id}`, {
         description
       })
     } catch (error) {

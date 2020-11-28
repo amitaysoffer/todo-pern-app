@@ -7,7 +7,7 @@ function InputTodo() {
   const createTodo = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/todos', {
+      const response = await axios.post('/todos', {
         description
       })
     } catch (error) {

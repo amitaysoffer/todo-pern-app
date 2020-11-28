@@ -7,7 +7,7 @@ function ListTodos() {
 
   const deleteTodo = async (id) => {
     try {
-      const deleteTodo = await axios.delete(`http://localhost:5000/todos/${id}`)
+      const deleteTodo = await axios.delete(`/todos/${id}`)
       setTodos(todos.filter(todo => todo.todo_id !== id));
     } catch (error) {
       console.error(error.message);
@@ -16,7 +16,7 @@ function ListTodos() {
 
   const getTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/todos');
+      const response = await axios.get('/todos');
       setTodos(response.data);
     } catch (error) {
       console.error(error.message);
