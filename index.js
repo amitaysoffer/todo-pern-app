@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
-// const path = require('path');
-const cors = require('cors');
-const PORT = process.env.PORT || 5000;
+const path = require('path');
+// const cors = require('cors');
+const PORT = process.env.PORT || 3000;
 const pool = require('./db')
 
+app.use('/', express.static(path.join(__dirname, 'client/build')));
+
 // middleware
-app.use(cors());
+// app.use(cors());
 // app.use(express.static('/client/public'));
 app.use(express.json()) // to get data from the client side we need to use req.body and this allows us to access the req.body and get json data.
 
@@ -65,5 +67,8 @@ app.delete('/todos/:id', async (req, res) => {
     console.error(error.message)
   }
 })
+
+app.get("/*", (req, res) => { res.sendFile(path.join(__dirname, "client", "build", "index.html")); });
+
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));

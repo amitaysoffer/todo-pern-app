@@ -15,7 +15,6 @@ function InputTodo() {
     }
   }
 
-
   return (
     <Fragment>
       <h1 className="text-center mt-5">Pern Todo List</h1>

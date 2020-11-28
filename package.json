@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "client": "npm run watch --prefix client",
+    "dev": "concurrently \"nodemon server.js\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
