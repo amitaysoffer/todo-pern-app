@@ -4,7 +4,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const pool = require('./db')
 
-app.use('/', express.static(path.join(__dirname, 'client/build')));
+app.use('/', express.static(path.join(__dirname, '..', 'client/build')));
 
 // middleware
 app.use(express.json()) // to get data from the client side we need to use req.body and this allows us to access the req.body and get json data.
@@ -66,7 +66,7 @@ app.delete('/todos/:id', async (req, res) => {
   }
 })
 
-app.get("/*", (req, res) => { res.sendFile(path.join(__dirname, "client", "build", "index.html")); });
+app.get("/*", (req, res) => { res.sendFile(path.join(__dirname, '..', "client", "build", "index.html")); });
 
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
