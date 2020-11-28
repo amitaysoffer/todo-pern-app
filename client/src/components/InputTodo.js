@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from 'react'
+import axios from 'axios'
 
 function InputTodo() {
   const [description, setDescription] = useState('');
@@ -6,18 +7,14 @@ function InputTodo() {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
-      const todoData = { description };
-      const response = await fetch('http://localhost:5000/todos', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(todoData)
-      });
-      // console.log(response)
-      // window.location = '/';
+      const response = await axios.post('http://localhost:5000/todos', {
+        description
+      })
     } catch (error) {
       console.error(error.message);
     }
   }
+
 
   return (
     <Fragment>

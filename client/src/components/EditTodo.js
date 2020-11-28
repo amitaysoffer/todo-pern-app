@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react'
+import axios from 'axios'
 
 const EditTodo = ({ todo }) => {
   const [description, setDescription] = useState(todo.description);
@@ -6,13 +7,9 @@ const EditTodo = ({ todo }) => {
   const updateDescription = async (e) => {
     e.preventDefault();
     try {
-      const body = { description };
-      const response = await fetch(`http://localhost:5000/todos/${todo.todo_id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
-      // window.location = '/'
+      const response = await axios.put(`http://localhost:5000/todos/${todo.todo_id}`, {
+        description
+      })
     } catch (error) {
       console.error(error.message)
     }
