@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "npm run watch --prefix client",
+    "client": "npm run watch --prefix ../client",
     "dev": "concurrently \"nodemon index.js\" \"npm run client\""
   },
   "author": "",
